@@ -2,13 +2,13 @@
 
 // Redux
 import { applyMiddleware, combineReducers, createStore } from 'redux'
-import logger from 'redux-logger'
+import {logger} from 'redux-logger'
 
 // Navigation
 import { NavigatorTabOne } from './tabOne/navigationConfiguration'
 import { NavigatorTabTwo } from './tabTwo/navigationConfiguration'
 import { NavigatorTabThree } from './tabThree/navigationConfiguration'
-import { TabBar, tabBarReducer } from './tabBar/navigationConfiguration'
+import { tabBarReducer } from './tabBar/navigationConfiguration'
 
 // Middleware
 const middleware = () => {
@@ -24,6 +24,8 @@ export default createStore(
     tabTwo: (state,action) => NavigatorTabTwo.router.getStateForAction(action,state),
 
     tabThree: (state,action) => NavigatorTabThree.router.getStateForAction(action,state),
-  }),
+  })
+    /*,
   middleware(),
+  */
 )
